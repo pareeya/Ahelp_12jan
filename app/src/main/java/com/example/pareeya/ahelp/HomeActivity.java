@@ -40,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
     private LocationManager locationManager;
     private Criteria criteria;
     private double lagADouble = 13.859882, lngADouble=100.481604;
+    private String phoneHelpCall; //phone ของคนที่ให้ ความช่วยเหลือ
 
 
     @Override
@@ -277,7 +278,8 @@ public class HomeActivity extends AppCompatActivity {
             Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM phoneTABLE WHERE Action = 1", null);
             cursor.moveToFirst();
             Log.d("12janV2", "cursor.getCount ==> " + cursor.getCount());
-
+            phoneHelpCall = cursor.getString(2);
+            Log.d("12janV2", "phoneHelpCall ==>" + phoneHelpCall);
 
         } catch (Exception e) {
             Log.d("12janV2", "e ==> " + e.toString());
